@@ -101,7 +101,7 @@ export namespace JustChatBot {
   }
   export interface Config extends Bot.Config, BaseConfig, ServerConfig {}
   export const Config = Schema.object({
-    port: Schema.number().description("监听端口").default(8080).required(),
+    port: Schema.number().description("监听端口").default(38080).required(),
     host: Schema.string().description("监听地址").default("0.0.0.0"),
     name: Schema.string().description("服务器名称").default("JustChat Bot"),
     id: Schema.string().description("服务器ID").default(generateDefaultUUID()),
