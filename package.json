@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/CJGroup/justchat-koishi"
+    "url": "https://github.com/CJGroup/justchat-koishi"
   },
   "keywords": [
     "Koishi.js",
@@ -21,6 +21,13 @@
     "url": "https://github.com/CJGroup/justchat-koishi/issues"
   },
   "homepage": "https://github.com/CJGroup/justchat-koishi#readme",
+  "koishi": {
+    "description":{
+      "en": "An adapter of JustChat for Koishi.js",
+      "zh": "适用于JustChat的Koishi适配器。"
+    },
+    "locales": ["zh"]
+  },
   "devDependencies": {
     "@koishijs/plugin-mock": "^2.4.3",
     "@semantic-release/changelog": "^6.0.3",
