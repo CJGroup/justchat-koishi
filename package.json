@@ -50,7 +50,7 @@
   },
   "packageManager": "pnpm@8.6.2",
   "dependencies": {
-    "justchat-mc": "^1.0.1",
+    "justchat-mc": "^1.0.3",
     "uuid": "^9.0.0"
   }
 }
