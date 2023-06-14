@@ -25,8 +25,8 @@ export class JCServer extends Adapter.Server<JustChatBot> {
         bot.offline();
     }
 
-    public async send(){
-        
+    public async send(message:JC.SendChatMessage, client?:JC.SimpleClient){
+        return this.internal.sendChatMessage(message, client);
     }
 }
 

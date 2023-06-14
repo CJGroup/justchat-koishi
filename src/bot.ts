@@ -2,8 +2,10 @@ import * as JC from 'justchat-mc';
 import { Bot, Context, Fragment, h, Schema, SendOptions, Universal } from 'koishi';
 import { adaptUser, generateDefaultUUID } from './utils';
 import { JCServer } from './server';
+import { JustChatMessenger } from './message';
 
 export class JustChatBot extends Bot<JustChatBot.Config> {
+    static platform = 'justchat'
     internal: JCServer;
 
     public constructor(ctx: Context, config: JustChatBot.Config) {
@@ -34,7 +36,21 @@ export class JustChatBot extends Bot<JustChatBot.Config> {
         content: Fragment,
         guildId?: string | undefined,
         opts?: SendOptions | undefined
-    ): Promise<string[]> {}
+    ): Promise<string[]> {
+        return await new JustChatMessenger(this,channelId,guildId,opts).send(content);
+    }
+
+    public adaptMessage(msg: JC.SendChatMessage){
+        const { world, sender, content } = msg;
+        const session = this.session({
+            type: 'message',
+            channelId: world,
+        });
+        session.username = sender;
+        session.content = content[0].content;
+        session.elements = h.parse(session.content);
+        return session;
+    }
 }
 export namespace JustChatBot {
     export interface BaseConfig {

@@ -106,3 +106,4 @@ dist
 .idea/
 pnpm-link.yaml
 *yalc*
+lib/
