@@ -1,17 +1,15 @@
 import * as JC from 'justchat-mc';
 import { Bot, Context, Fragment, h, Schema, SendOptions, Universal } from 'koishi';
 import { adaptUser, generateDefaultUUID } from './utils';
-import { JCServer } from './server';
 import { JustChatMessenger } from './message';
 
 export class JustChatBot extends Bot<JustChatBot.Config> {
     static platform = 'justchat'
-    internal: JCServer;
+    internal: JC.JustChatServer;
 
     public constructor(ctx: Context, config: JustChatBot.Config) {
         super(ctx, config);
-        this.internal = new JCServer();
-        this.internal.createServer({
+        this.internal = new JC.JustChatServer({
             name: this.config.name || 'JustChat Bot',
             id: this.config.id || generateDefaultUUID(),
             port: this.config.port,
@@ -20,7 +18,20 @@ export class JustChatBot extends Bot<JustChatBot.Config> {
             enableTimeout: this.config.enableTimeout,
             maxConnections: this.config.maxConnections
         });
-        ctx.plugin(JCServer, this.config);
+    }
+
+    public async start(){
+        Object.assign(this, await this.getSelf());
+        await this.internal.start();
+        this.internal.on('chat', (msg)=>{
+            const session = this.adaptMessage(msg);
+            if(session) this.dispatch(session);
+        })
+    }
+
+    public async stop():Promise<void> {
+        this.internal.close();
+        this.offline();
     }
 
     public async getSelf(): Promise<Universal.User> {
@@ -59,6 +70,17 @@ export namespace JustChatBot {
         id?: string;
         host?: string;
     }
-    export interface Config extends Bot.Config, BaseConfig, JCServer.Config {}
-    export const config = Schema.intersect([JCServer.config]);
+
+    export interface ServerConfig {
+        singleMode?: boolean,
+        enableTimeout?: boolean,
+        maxConnections?: number,
+    }
+    export interface Config extends Bot.Config, BaseConfig, ServerConfig {}
+    export const Config = Schema.object({
+        port: Schema.number().description('监听端口').default(8080).required(),
+        host: Schema.string().description('监听地址').default('localhost'),
+        name: Schema.string().description('服务器名称').default('JustChat Bot'),
+        id: Schema.string().description('服务器ID').default(generateDefaultUUID()),
+    })
 }

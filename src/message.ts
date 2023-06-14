@@ -20,7 +20,7 @@ export class JustChatMessenger extends Messenger<JustChatBot> {
 
     public async flush(): Promise<void> {
         const world = this.session.channelId?this.session.channelId:'';
-        const sender = this.session.bot.internal.send as JC.JustChatServer['sendChatMessage'];
+        const sender = this.session.bot.internal.sendChatMessage as JC.JustChatServer['sendChatMessage'];
         const contents: JC.ChatMessageContent[] = [];
         if(this.func && JSON.stringify(this.func)!='{}'){
             const content:JC.ChatMessageContent = {
