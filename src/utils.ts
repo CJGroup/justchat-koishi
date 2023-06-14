@@ -3,8 +3,7 @@ import { Universal } from "koishi";
 import { v5 } from 'uuid';
 
 export const adaptUser = (user: User): Universal.User => ({
-    isBot: user.bot,
-    userId: user.uuid,
+    userId: user.uuid?user.uuid:v5(user.name,v5.DNS),
     username: user.name,
     nickname: user.name,
 });
