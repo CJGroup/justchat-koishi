@@ -24,6 +24,10 @@ export class JCServer extends Adapter.Server<JustChatBot> {
         this.internal.close();
         bot.offline();
     }
+
+    public async send(){
+        
+    }
 }
 
 export namespace JCServer {
