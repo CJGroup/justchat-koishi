@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-adapter-justchat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An adapter of JustChat for Koishi.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

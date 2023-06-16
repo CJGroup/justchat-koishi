@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/CJGroup/justchat-koishi/compare/v1.0.0...v1.0.1) (2023-06-16)
+
+
+### Bug Fixes
+
+* small axe ([eeb4527](https://github.com/CJGroup/justchat-koishi/commit/eeb4527590a697296d943f6883280eb368228dce))
+* the bot didn't have a selfId. ([120975f](https://github.com/CJGroup/justchat-koishi/commit/120975f2ea5f394ab99837170a8dee64a5a9ce2d))
+
 # 1.0.0 (2023-06-14)
 
 
