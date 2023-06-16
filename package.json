@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-adapter-justchat",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "An adapter of JustChat for Koishi.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -22,11 +22,13 @@
   },
   "homepage": "https://github.com/CJGroup/justchat-koishi#readme",
   "koishi": {
-    "description":{
+    "description": {
       "en": "An adapter of JustChat for Koishi.js",
       "zh": "适用于JustChat的Koishi适配器。"
     },
-    "locales": ["zh"]
+    "locales": [
+      "zh"
+    ]
   },
   "devDependencies": {
     "@koishijs/plugin-mock": "^2.4.3",
