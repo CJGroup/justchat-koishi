@@ -11,6 +11,14 @@ import {
 import { adaptUser, generateDefaultUUID } from "./utils";
 import { JustChatMessenger } from "./message";
 
+declare module 'koishi' {
+  namespace Universal {
+    interface User {
+      selfId: string,
+    }
+  }
+}
+
 export class JustChatBot extends Bot<JustChatBot.Config> {
   internal: JC.JustChatServer;
 
@@ -45,11 +53,13 @@ export class JustChatBot extends Bot<JustChatBot.Config> {
   }
 
   public async getSelf(): Promise<Universal.User> {
-    return adaptUser({
+    const user = adaptUser({
       name: this.config.name || "JustChat Bot",
       uuid: this.config.id || generateDefaultUUID(),
       bot: true,
     });
+    user['selfId'] = user.userId;
+    return user;
   }
 
   public async sendMessage(
@@ -72,7 +82,6 @@ export class JustChatBot extends Bot<JustChatBot.Config> {
       guildId: world,
       timestamp: Date.now(),
     });
-    session.selfId = this.config.id ? this.config.id : "JCBot";
     session.author = adaptUser({
       name: sender,
       bot: false,
