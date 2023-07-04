@@ -9,6 +9,7 @@ import {
   Universal,
 } from "koishi";
 import { adaptUser, generateDefaultUUID } from "./utils";
+import {} from "@justchat/koishi-plugin-service";
 import { JustChatMessenger } from "./message";
 
 declare module 'koishi' {
@@ -18,6 +19,8 @@ declare module 'koishi' {
     }
   }
 }
+
+export const using = ['justchat'];
 
 export class JustChatBot extends Bot<JustChatBot.Config> {
   internal: JC.JustChatServer;
