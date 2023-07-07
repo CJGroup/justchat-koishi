@@ -84,4 +84,5 @@ export namespace JustChatBot {
     name: string;
     id: string;
   }
+  
 }
