@@ -1,5 +1,6 @@
 import { Messenger, h, Logger } from "koishi";
 import * as JC from "justchat-mc";
+import {} from "@justchat/koishi-plugin-service";
 import { JustChatBot } from "./bot";
 
 const logger = new Logger("justchat");
@@ -9,20 +10,13 @@ interface Func {
   [key: string]: any;
 }
 
-interface Content extends Func {
-  type: "text" | "cqcode";
-  content?: string;
-}
-
 export class JustChatMessenger extends Messenger<JustChatBot> {
   private content = "";
   private func: Func = {};
 
   public async flush(): Promise<void> {
     const world = this.session.channelId ? this.session.channelId : "";
-    const sender = this.session.bot.internal.sendChatMessage.bind(
-      this.session.bot.internal
-    ) as JC.JustChatServer["sendChatMessage"];
+    const sender = this.session.app.justchat.sendChatMessage;
     const contents: JC.ChatMessageContent[] = [];
     if (this.func && JSON.stringify(this.func) != "{}") {
       const content: JC.ChatMessageContent = {
@@ -45,7 +39,12 @@ export class JustChatMessenger extends Messenger<JustChatBot> {
       content: contents,
     };
     try {
-      await sender(msg);
+      const bot = this.session.bot as JustChatBot;
+      const client:JC.SimpleClient = {
+        name: bot.config.name,
+        uuid: bot.config.id,
+      }
+      await sender(msg, client);
       const session = this.bot.session(this.session);
       session.app.emit(session, "send", session);
       this.results.push(session);
