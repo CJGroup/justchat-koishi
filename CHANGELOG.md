@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/CJGroup/justchat-koishi/compare/v1.0.1...v2.0.0) (2023-07-07)
+
+
+### Features
+
+* :boom: 发生极重大变化 ([b2af0b0](https://github.com/CJGroup/justchat-koishi/commit/b2af0b087c3f8c24296c43884f313bc00887fac4))
+* 修改适配器，使其可以搭配justchat服务使用 ([28e9644](https://github.com/CJGroup/justchat-koishi/commit/28e9644e1d1b54625cef30e2d6ffdc2c907e7fec))
+
+
+### BREAKING CHANGES
+
+* 适配器工作方式发生重大变化
+
 ## [1.0.1](https://github.com/CJGroup/justchat-koishi/compare/v1.0.0...v1.0.1) (2023-06-16)
 
 
