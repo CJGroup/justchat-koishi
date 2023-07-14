@@ -16,7 +16,7 @@ export class JustChatMessenger extends Messenger<JustChatBot> {
 
   public async flush(): Promise<void> {
     const world = this.session.channelId ? this.session.channelId : "";
-    const sender = this.session.app.justchat.sendChatMessage;
+    const sender = this.session.app.justchat.sendChatMessage.bind(this.session.app.justchat);
     const contents: JC.ChatMessageContent[] = [];
     if (this.func && JSON.stringify(this.func) != "{}") {
       const content: JC.ChatMessageContent = {
