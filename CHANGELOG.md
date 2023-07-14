@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/CJGroup/justchat-koishi/compare/v2.0.1...v2.0.2) (2023-07-14)
+
+
+### Bug Fixes
+
+* Bind this ([048d8fa](https://github.com/CJGroup/justchat-koishi/commit/048d8fa5e311aaf3933b17def686e122e49cb6bf))
+
 ## [2.0.1](https://github.com/CJGroup/justchat-koishi/compare/v2.0.0...v2.0.1) (2023-07-14)
 
 
