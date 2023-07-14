@@ -34,6 +34,7 @@ export class JustChatBot extends Bot<JustChatBot.Config> {
 
   public async start() {
     this.ctx.justchat.registerChatListener(this.client, (msg: JC.SendChatMessage) => this.adaptMessage(msg));
+    if(this.ctx.justchat.getClientList().findIndex((val)=>(val.uuid === this.config.id))!=-1) this.online();
   }
 
   public async getSelf(): Promise<Universal.User> {
