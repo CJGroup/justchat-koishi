@@ -4,6 +4,7 @@ import {
   Context,
   Fragment,
   h,
+  Schema,
   SendOptions,
   Universal,
 } from "koishi";
@@ -85,4 +86,8 @@ export namespace JustChatBot {
     id: string;
   }
   
+  export const Config:Schema<JustChatBot.Config>=Schema.object({
+    name: Schema.string().description('JustChat客户端名称').required(),
+    id: Schema.string().description('JustChat客户端UUID'),
+  });
 }
