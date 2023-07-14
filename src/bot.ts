@@ -32,7 +32,7 @@ export class JustChatBot extends Bot<JustChatBot.Config> {
   }
 
   public async start() {
-    this.ctx.justchat.registerChatListener(this.client, (msg) => this.adaptMessage(msg));
+    this.ctx.justchat.registerChatListener(this.client, (msg: JC.SendChatMessage) => this.adaptMessage(msg));
   }
 
   public async getSelf(): Promise<Universal.User> {
