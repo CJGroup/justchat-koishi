@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/CJGroup/justchat-koishi/compare/v2.0.2...v2.0.3) (2023-07-14)
+
+
+### Bug Fixes
+
+* I didn't assign self to Bot ([990f2e0](https://github.com/CJGroup/justchat-koishi/commit/990f2e0af116ef54cf8e7b6719209207fd5f2506))
+
 ## [2.0.2](https://github.com/CJGroup/justchat-koishi/compare/v2.0.1...v2.0.2) (2023-07-14)
 
 
