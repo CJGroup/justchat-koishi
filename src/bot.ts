@@ -33,6 +33,7 @@ export class JustChatBot extends Bot<JustChatBot.Config> {
   }
 
   public async start() {
+    Object.assign(this, await this.getSelf());
     this.ctx.justchat.registerChatListener(this.client, (msg: JC.SendChatMessage) => {
       const session = this.adaptMessage(msg);
       if(session) this.dispatch(session);
