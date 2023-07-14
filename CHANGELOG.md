@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/CJGroup/justchat-koishi/compare/v2.0.0...v2.0.1) (2023-07-14)
+
+
+### Bug Fixes
+
+* add the online function ([2c66cba](https://github.com/CJGroup/justchat-koishi/commit/2c66cbad18a02f8baa30b9935530db3a14c8a7d3))
+* Didn't correctly dispatch session ([4d9a87f](https://github.com/CJGroup/justchat-koishi/commit/4d9a87fd52d8c43781233972c6cc689ae6f32f76))
+* 添加Schema ([24ebe98](https://github.com/CJGroup/justchat-koishi/commit/24ebe987705ac308b1861de9177de56272ad77fc))
+
 # [2.0.0](https://github.com/CJGroup/justchat-koishi/compare/v1.0.1...v2.0.0) (2023-07-07)
 
 
