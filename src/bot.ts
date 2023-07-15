@@ -68,7 +68,7 @@ export class JustChatBot extends Bot<JustChatBot.Config> {
       type: "message",
       channelId: world,
       messageId: (Math.floor(Math.random() * 89999999) + 10000000).toString(),
-      guildId: world,
+      guildId: this.selfId,
       timestamp: Date.now(),
     });
     session.author = adaptUser({
