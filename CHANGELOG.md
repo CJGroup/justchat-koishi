@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/CJGroup/justchat-koishi/compare/v2.0.3...v2.0.4) (2023-07-15)
+
+
+### Bug Fixes
+
+* guildId is not different to channelId ([d13dbba](https://github.com/CJGroup/justchat-koishi/commit/d13dbbaa6eff3ba3c992499c732b14ba0770f461))
+
 ## [2.0.3](https://github.com/CJGroup/justchat-koishi/compare/v2.0.2...v2.0.3) (2023-07-14)
 
 
